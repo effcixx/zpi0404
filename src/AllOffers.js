@@ -592,7 +592,7 @@ class AllOffers extends Component {
                 <body className="">
 
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">CharytatywniRazem.pl</Navbar.Brand>
+                    <Navbar.Brand href="/">CharityChain.pl</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto"></Nav>
@@ -607,12 +607,12 @@ class AllOffers extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <section className="section-intro">
-                    <div className="header-intro parallax100 t-center p-t-135 p-b-158"
-                         style={{backgroundImage: "url(" + back1 + ")"}}>
-			                <span className="tit2 p-l-15 p-r-15">
-				                WSZYSTKIE OFERTY
-			                </span>
-                    </div>
+                    {/*<div className="header-intro parallax100 t-center p-t-135 p-b-158"*/}
+                         {/*style={{backgroundImage: "url(" + back1 + ")"}}>*/}
+			                {/*<span className="tit2 p-l-15 p-r-15">*/}
+				                {/*WSZYSTKIE OFERTY*/}
+			                {/*</span>*/}
+                    {/*</div>*/}
                     {/*<div className="header-intro parallax100 t-center p-t-135 p-b-50"*/}
                    {/*>*/}
                     {/*<span className="tit2 p-l-15 p-r-15">*/}

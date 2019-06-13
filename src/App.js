@@ -41,6 +41,8 @@ import ewa from './img/team/ewa.jpg'; // with import
 import maciek from './img/team/maciek.jpg'; // with import
 import pwr from './img/portfolio/fullsize/pwr.png'; // with import
 import agata from './img/team/agata.jpg'; // with import
+import zarowka from './img/portfolio/fullsize/zarowka.png'; // with import
+import ludzie from './img/portfolio/fullsize/ludzie.jpg'; // with import
 
 
 class App extends Component {
@@ -167,7 +169,7 @@ class App extends Component {
                 <body id="page-top">
 
                 <Navbar collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">CharytatywniRazem.pl</Navbar.Brand>
+                    <Navbar.Brand href="/">CharityChain.pl</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto"></Nav>
@@ -213,13 +215,42 @@ class App extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 text-center">
-                                <h2 className="section-heading text-uppercase">Historia & Technologie</h2>
-                                <h3 class="section-subheading text-muted">Krótki opis jak powstała strona i jakie technologie wykorzystuje</h3>
+                                <h2 className="section-heading text-uppercase">Historia</h2>
+                                <h3 class="section-subheading text-muted">Krótki opis skąd wział się pomysł na stronę</h3>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
                                 <ul className="timeline">
+                                    <li>
+                                        <div className="timeline-image">
+                                            <img className="rounded-circle img-fluid1" src={zarowka} alt=""/>
+                                        </div>
+                                        <div className="timeline-panel">
+                                            <div className="timeline-heading">
+                                                <h4 className="subheading">Pomysł</h4>
+                                            </div>
+                                            <div className="timeline-body">
+                                                <p className="text-muted">Pomysł na stronę zrodził się z chęci przyczynienia się do zmniejszenia marnotrawienia przedmiotów</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="timeline-inverted">
+                                        <div className="timeline-image">
+                                            <img className="rounded-circle img-fluid1" src={ludzie} alt=""/>
+                                        </div>
+                                        <div className="timeline-panel">
+                                            <div className="timeline-heading">
+                                                <h4 className="subheading">Współpraca</h4>
+                                            </div>
+                                            <div className="timeline-body">
+                                                <p className="text-muted">Realizację pomysłu można było osiągnąć jedynie
+                                                dzięki współpracy czwórki ambitnych studentów
+                                                    tworząć jedną całość z szeregu indywidualności.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
                                     <li>
                                         <div className="timeline-image">
                                             <img className="rounded-circle img-fluid1" src={pwr} alt=""/>
@@ -229,56 +260,8 @@ class App extends Component {
                                                 <h4 className="subheading">Zespołowe Przedsięwzięcie Inżynierskie</h4>
                                             </div>
                                             <div className="timeline-body">
-                                                <p className="text-muted">Projekt aplikacji webowej "CharytatywniRazem" powstał w reamach realizacji przedsięwzięcia
-                                                    na kursie Zespołowe Przedsięwzięcie Inżynierskie na Politechnice Wrocławskie</p>
+                                                <p className="text-muted">Projekt aplikacji webowej "CharityChain.pl" powstał w reamach realizacji kursu Zespołowe Przedsięwzięcie Inżynierskie na Politechnice Wrocławskie</p>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li className="timeline-inverted">
-                                        <div className="timeline-image">
-                                            <img className="rounded-circle img-fluid1" src={ethereum} alt=""/>
-                                        </div>
-                                        <div className="timeline-panel">
-                                            <div className="timeline-heading">
-                                                <h4 className="subheading">Ethereum blockchain</h4>
-                                            </div>
-                                            <div className="timeline-body">
-                                                <p className="text-muted"> Transakcja rezerwacji produktu z oferty oparta na smart contractach w technologii Ethereum blockchain</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="timeline-image">
-                                            <img className="rounded-circle img-fluid1" src={pwa} alt=""/>
-                                        </div>
-                                        <div className="timeline-panel">
-                                            <div className="timeline-heading">
-                                                <h4 className="subheading">Progressive Web App</h4>
-                                            </div>
-                                            <div className="timeline-body">
-                                                <p className="text-muted">Aplikacja wykorzystuje Progressive Web App</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="timeline-inverted">
-                                        <div className="timeline-image">
-                                            <img className="rounded-circle img-fluid1" src={laczne} alt=""/>
-                                        </div>
-                                        <div className="timeline-panel">
-                                            <div className="timeline-heading">
-                                                <h4 className="subheading">Node JS, React, Azure, PostgreSQL</h4>
-                                            </div>
-                                            <div className="timeline-body">
-                                                <p className="text-muted">Aplikacja wykorzystuje środowisko NodeJS od strony back-endowej oraz React od strony front-endowej.
-                                                    Baza danych produktów i użytkowników umieszczona jest w chmurze platformy Azure, zarządzana przez SZBD PostgreSQL.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="timeline-inverted">
-                                        <div className="timeline-image">
-                                            <h4>
-                                               </h4>
                                         </div>
                                     </li>
 
@@ -288,6 +271,67 @@ class App extends Component {
                     </div>
                 </section>
 
+                <section>
+                            <div className="col-lg-12 text-center">
+                                <h2 className="mojStyl">TECHNOLOGIE</h2>
+                                <h3 className="mojStyl2">Technologie zastosowane na stronie</h3>
+                            </div>
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-lg-6 order-lg-2">
+                                <div className="p-5">
+                                    <img className="img-fluid rounded-circle" src={ethereum} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-lg-6 order-lg-1">
+                                <div className="p-5">
+                                    <h2 className="display-4">Ethereum blockchain</h2>
+                                    <p className="mojaKlasa3">Transakcja rezerwacji produktu z oferty oparta na smart contractach w technologii Ethereum blockchain</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-lg-6">
+                                <div className="p-5">
+                                    <img className="img-fluid rounded-circle" src={laczne} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-lg-6">
+                                <div className="p-5">
+                                    <h2 className="display-4">Node JS, React, Azure, PostgreSQL</h2>
+                                    <p className="mojaKlasa3">Aplikacja wykorzystuje środowisko NodeJS od strony back-endowej oraz React od strony front-endowej.
+                                        Baza danych produktów i użytkowników umieszczona jest w chmurze platformy Azure, zarządzana przez SZBD PostgreSQL.
+                                        </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-lg-6 order-lg-2">
+                                <div className="p-5">
+                                    <img className="img-fluid rounded-circle" src={pwa} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-lg-6 order-lg-1">
+                                <div className="p-5">
+                                    <h2 className="display-4">Progressive Web App</h2>
+                                    <p className="mojaKlasa3">Aplikacja wykorzystuje Progressive Web App dzięki czemu aplikacja internetowa uruchamiana jest tak jak
+                                    zwykła strona internetowa ale umożliwiająca stworzenie wrażenia działania jak natywna aplikacja</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
 
                 <section className="page-section" id="services">
