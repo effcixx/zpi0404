@@ -289,6 +289,34 @@ class AllOffers extends Component {
             return url===null? "http://res.cloudinary.com/daiq9mb50/image/upload/v1558020887/demo/m39s5w1s5vhuzh18dtfx.png" : url;
         }
 
+        function renderByCategory(categoryNum, status, url, offerid, name, description)
+        {
+            var cat = getCatById(categoryNum);
+            var statusTrans = getStatusByID(status);
+            var photo = getPhoto(url);
+            return (
+                <div className="col-md-4 p-t-30">
+                    <div className="blo1 myStyleOffer">
+                        <div className="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+                            <a href="#"><img src={photo} width="350px" height="250px" alt="IMG-INTRO"/></a>
+                        </div>
+
+                        <div className="wrap-text-blo1 p-t-35">
+                            <h4 className="txt5 color0-hov trans-0-4 m-b-13"> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
+
+
+                            <p ><b className="cathegoryStyle">Kategoria: {cat}</b></p>
+                            <p className="m-b-20">
+                                {description}
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
         return this.state.data.map((offer, index) => {
             const { offerid, name, description, categoryNum, status, url } = offer
 
@@ -296,90 +324,20 @@ class AllOffers extends Component {
             {
                 if(categoryNum===1)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
+                    return renderByCategory(categoryNum,status,url,offerid,name, description)
 
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
                 }
 
             }
             else if(this.state.all)
             {
-                var cat = getCatById(categoryNum);
-                var statusTrans = getStatusByID(status);
-                var photo = getPhoto(url);
-                this.state.countItems++;
-                return (
-                    <div className="col-md-4 p-t-30">
-                        <div className="blo1">
-                            <div className="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                                <a href="#"><img src={photo} width="350px" height="250px" alt="IMG-INTRO"/></a>
-                            </div>
-
-                            <div className="wrap-text-blo1 p-t-35">
-                                <h4 className="txt5 color0-hov trans-0-4 m-b-13"> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-
-
-                                <p><b>{cat}</b></p>
-                                <p className="m-b-20">
-                                   {description}
-                                </p>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                )
+                return renderByCategory(categoryNum,status,url,offerid,name,description);
             }
             else if(this.state.isToy)
             {
                 if(categoryNum===2)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
-
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
+                    return renderByCategory(categoryNum,status,url,offerid,name,description);
                 }
 
             }
@@ -387,28 +345,7 @@ class AllOffers extends Component {
             {
                 if(categoryNum===3)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
-
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
+                    return renderByCategory(categoryNum,status,url,offerid,name,description);
                 }
 
             }
@@ -416,28 +353,7 @@ class AllOffers extends Component {
             {
                 if(categoryNum===4)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
-
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
+                    return renderByCategory(categoryNum,status,url,offerid,name,description);
                 }
 
             }
@@ -445,28 +361,7 @@ class AllOffers extends Component {
             {
                 if(categoryNum===5)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
-
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
+                    return renderByCategory(categoryNum,status,url,offerid,name,description);
                 }
 
             }
@@ -474,28 +369,7 @@ class AllOffers extends Component {
             {
                 if(categoryNum===6)
                 {
-                    var cat = getCatById(categoryNum);
-                    var statusTrans = getStatusByID(status);
-                    var photo = getPhoto(url);
-                    this.state.countItems++;
-                    return (
-                        <div className="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                            <div className="h_gallery_item">
-
-                                <img className="img-fluid" src={photo} width="350px" height="250px" alt=""/>
-                                <div className="g_item_text">
-                                    <h4> <Nav.Link style={{paddingLeft:0}} onClick={() => goToSingleOffer(offerid)}>{name}</Nav.Link></h4>
-                                    <h5>{cat}</h5>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    )
+                    return renderByCategory(categoryNum,status,url,offerid,name,description);
                 }
 
             }
@@ -583,7 +457,7 @@ class AllOffers extends Component {
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
                     <meta name="description" content=""/>
                     <meta name="author" content=""/>
-                    <title>Shop Homepage - Start Bootstrap Template</title>
+                    <title></title>
                     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
                     <link href="css/shop-homepage.css" rel="stylesheet"/>
 
