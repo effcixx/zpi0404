@@ -150,10 +150,15 @@ class LoginButton extends Component {
                 var auth2 = gapi.auth2.init();
                 auth2.then(function () {
                     // Current values
-                    var isSignedIn = auth2.isSignedIn;
+                    //var isSignedIn = auth2.isSignedIn;
+                    var isSignedIn = true;
+
+
 
                     if (!isSignedIn) {
+
                     } else {
+
                         var googleUser = authInstance.currentUser.get();
                         var id_token = googleUser.getAuthResponse().id_token;
 
@@ -168,8 +173,10 @@ class LoginButton extends Component {
                                 // alert(id_token);
                                 // alert("LOCAL" + localStorage.getItem('authToken'));
                                 // doRedirect = true;
-
-                                window.open("/logged", "_self");
+                                localStorage.setItem('isLogged', "true");
+                                window.open("/", "_self");
+                                //alert(xhr.responseText);
+                                //window.open("/logged", "_self");
 
 
                             } else {

@@ -201,9 +201,8 @@ class App extends Component {
                                 <hr className="divider my-4"/>
                             </div>
                             <div className="col-lg-8 align-self-baseline">
-                                <p className="text-white-75 font-weight-light mb-5">Zarejestruj się aby móc dzielić się
-                                    z
-                                    bliźnimi</p>
+                                <p className="text-white-75 font-weight-light mb-5">Zarejestruj się, aby dołączyć do łańcucha dobra i dzielić się z innymi!
+                                    </p>
                                 <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Dowiedz się
                                     więcej</a>
                             </div>
@@ -216,7 +215,7 @@ class App extends Component {
                         <div className="row">
                             <div className="col-lg-12 text-center">
                                 <h2 className="section-heading text-uppercase">Historia</h2>
-                                <h3 class="section-subheading text-muted">Krótki opis skąd wział się pomysł na stronę</h3>
+                                <h3 class="section-subheading text-muted"></h3>
                             </div>
                         </div>
                         <div className="row">
@@ -246,7 +245,7 @@ class App extends Component {
                                             <div className="timeline-body">
                                                 <p className="text-muted">Realizację pomysłu można było osiągnąć jedynie
                                                 dzięki współpracy czwórki ambitnych studentów
-                                                    tworząć jedną całość z szeregu indywidualności.
+                                                    tworząc jedną całość z szeregu indywidualności.
                                                 </p>
                                             </div>
                                         </div>
@@ -682,6 +681,7 @@ function goToAddOffer() {
 
 function signOut() {
     localStorage.removeItem('isLogged');
+    localStorage.removeItem('authToken');
     window.location.reload();
 }
 
