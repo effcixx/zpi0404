@@ -159,7 +159,8 @@ class LoginButton extends Component {
 
 
                         var xhr = new XMLHttpRequest();
-                        xhr.open('POST', 'http://localhost:8080/try');
+                        xhr.open('POST', 'https://backendzpipwr.herokuapp.com/try');
+                        //xhr.open('POST', 'http://localhost:8080/try');
                         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                         xhr.onload = function () {
                             if (xhr.status === 200) {
