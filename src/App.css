@@ -183,12 +183,25 @@
     }
 
 }
+@media only screen and (max-width: 765px) {
+    #spinnerMap{
+        margin-top: 35%;
+        margin-left: 20%;
+        margin-bottom: 50%;
+    }
 
-#spinnerMap{
+
+}
+@media only screen and (min-width: 768px){
+    #spinnerMap{
     margin-top: 20%;
     margin-left: 40%;
     margin-bottom: 50%;
 }
+
+}
+
+
 
 .hov-img-zoom {
     display: block;
