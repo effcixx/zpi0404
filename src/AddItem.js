@@ -28,8 +28,9 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Popup from "reactjs-popup";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, {Marker} from "react-mapbox-gl";
 import queryString from "query-string";
+import CityPin from "./OfferPin";
 const Map = ReactMapboxGl({
     accessToken: 'pk.eyJ1Ijoib3pvbmVsYXllcjk3IiwiYSI6ImNqdDc5YW9majAyZjU0NXBscjJkMXR2OHQifQ.aQH1Wz9_4MG4xcC6Wr4NbQ'
 });
@@ -41,9 +42,12 @@ class AddItem extends Component {
         this.state ={
             redirect: false,
             selectedFiles:[],
-            category: "Kategoria",
-            redirectRanking: false
+            category: 2,
+            coordinates: "",
+            marker: [],
         }
+        this.mapOnClick = this.mapOnClick.bind(this)
+        this.renderMarkers = this.renderMarkers.bind(this)
     }
 
 
@@ -62,6 +66,11 @@ class AddItem extends Component {
     setCategoryState = () =>
     {
         var dropdown = document.getElementById("categorySelect");
+        console.log("DDDD: ", dropdown.value)
+        // this.state.category =
+        //     dropdown.value === "jedzenie" ? 1
+        //         : dropdown.value === "zabawki" ? 2
+        //         : dropdown.value === "RTV/AGD" ? 3 : 4;
     }
 
 
@@ -74,8 +83,14 @@ class AddItem extends Component {
 
     };
 
-    sendPhoto()
+    sendPhoto(event)
     {
+        if (true){
+            console.log("coordinatesssss: ");
+            console.log(this.state.coordinates);
+            event.preventDefault();
+            return;
+        }
         var dropdown = document.getElementById("categorySelect");
         var category = dropdown.options[dropdown.selectedIndex].value;
         const formData = new FormData();
@@ -84,6 +99,11 @@ class AddItem extends Component {
         formData.append('description',document.getElementById('descriptionInput').value);
         formData.append('category',category);
         formData.append('phone',document.getElementById('phoneInput').value);
+        // dodac formData z coordinates
+        if (this.state.coordinates !== null){
+            console.log(this.state.coordinates)
+            formData.append('coordinates', this.state.coordinates);
+        }
         var list = this.state.selectedFiles;
         Array.prototype.forEach.call(list, function(file){ formData.append('fileItem', file,file.name)});
         var xhr = new XMLHttpRequest();
@@ -103,12 +123,13 @@ class AddItem extends Component {
 
 
     render() {
+        var something = [1];
         return (
 
             <div className="LoginButton">
 
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">CharityChain.pl</Navbar.Brand>
+                    <Navbar.Brand href="/">CharytatywniRazem.pl</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto"></Nav>
@@ -127,13 +148,13 @@ class AddItem extends Component {
                 </Navbar>
                 <div id={"coverPhoto"}>
                     <div className="formDiv"  id = "divForm">
-                        <Form onSubmit={this.sendPhoto.bind(this)} enctype="multipart/form-data">
+                        <Form onSubmit={this.sendPhoto.bind(this)} enctype="multipart/form-data" id={"addItemForm"}>
                             <Form.Group as={Row} controlId="formHorizontalEmail">
                                 <Form.Label column sm={2}>
                                     Kategoria
                                 </Form.Label>
                                 <Col  sm={10}>
-                                    <select id="categorySelect" name="categorySelect" onChange={this.setCategoryState.bind(this)}>Kategoria
+                                    <select id="categorySelect" name="categorySelect" onChange={this.setCategoryState}>Kategoria
                                         <option value="jedzenie">Jedzenie</option>
                                         <option value="zabawki">Zabawki</option>
                                         <option value="RTV/AGD">RTV/AGD</option>
@@ -184,11 +205,13 @@ class AddItem extends Component {
                                 <Map
                                     style="mapbox://styles/marcinhorak/cjvgz67wl00dv1drk7b71mcpx"
                                     containerStyle={{
-                                        height: "20vh",
+                                        height: "28vh",
                                         width: "10  0vh"
                                     }}
                                     center={[17.036956, 51.110694]}
+                                    onClick={this.mapOnClick}
                                 >
+                                    { this.state.marker.map(this.renderMarkers) }
                                 </Map>
                                 <ButtonGroup size="lg">
 
@@ -230,7 +253,12 @@ class AddItem extends Component {
 
     componentDidMount()
     {
-
+        if(this.state.coordinates !== null){
+            console.log("NIEPUSTE")
+        }
+        else {
+            console.log("PUSTE")
+        }
         onLoad();
         //getUserID();
         displayLogOut();
@@ -241,6 +269,33 @@ class AddItem extends Component {
         displayRanking();
     }
 
+    mapOnClick(map, event) {
+        console.log("coordinates: ", event.lngLat)
+        this.state.coordinates = event.lngLat
+        this.state.marker = [1]
+        this.forceUpdate()
+        // return (
+        //     <Marker
+        //         key={12222}
+        //         coordinates={event.lngLat}
+        //     >
+        //     </Marker>
+        // )
+    }
+
+    renderMarkers(place) {
+        console.log("elemele")
+        return (
+            <Marker
+                key={12222}
+                coordinates={this.state.coordinates === null
+                    ? [17.039702582030458, 51.11164457352743]
+                    : this.state.coordinates}
+            >
+                <CityPin category={this.state.category} size={20} />
+            </Marker>
+        )
+    }
 }
 
 function onLoad() {
@@ -265,6 +320,12 @@ function signOut() {
     window.open("/",'_self');
 
 }
+function displayRanking(){
+    ReactDOM.render(
+        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
+    )
+    ;
+}
 
 
 function goToRanking() {
@@ -284,12 +345,6 @@ function goToAllOffers() {
 
 function goToAddOffer() {
     window.open("/additem","_self");
-}
-function displayRanking(){
-    ReactDOM.render(
-        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
-    )
-    ;
 }
 function displayLogOut()
 {
