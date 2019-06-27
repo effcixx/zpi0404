@@ -36,7 +36,7 @@ class Register extends Component {
         this.handleChange = this.handleChange.bind(this);
 
         this.alreadyRegistered = (
-            <p >Ten mail jest już zarejestrowany!</p>
+            {/*<p >Ten mail jest już zarejestrowany!</p>*/}
             );
 
     };

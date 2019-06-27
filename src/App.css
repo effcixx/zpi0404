@@ -166,11 +166,22 @@
     color: #64AAA4;
 }
 
+@media only screen and (max-width: 765px) {
+    #spinnerMy{
+        margin-left: 20%;
+        margin-bottom: 25%;
+        margin-top: 10%;
+    }
 
-#spinnerMy{
-    margin-left: 40%;
-    margin-bottom: 15%;
-    margin-top: 10%;
+
+}
+@media only screen and (min-width: 768px){
+    #spinnerMy{
+        margin-left: 40%;
+        margin-bottom: 15%;
+        margin-top: 10%;
+    }
+
 }
 
 #spinnerMap{
