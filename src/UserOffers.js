@@ -267,7 +267,7 @@ class UserOffers extends Component {
 
     getDataFromDb = () => {
 
-        fetch("https://backendzpipwr.herokuapp.com/userOffers1", {
+        fetch("https://backendzpipwr.herokuapp.com/userOffers", {
         //fetch("http://localhost:8083/userOffers", {
             method: 'POST',
             headers: {
