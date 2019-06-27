@@ -85,7 +85,7 @@ class AddItem extends Component {
 
     sendPhoto(event)
     {
-        if (true){
+        if (this.state.coordinates === ""){
             console.log("coordinatesssss: ");
             console.log(this.state.coordinates);
             event.preventDefault();
@@ -100,6 +100,7 @@ class AddItem extends Component {
         formData.append('category',category);
         formData.append('phone',document.getElementById('phoneInput').value);
         // dodac formData z coordinates
+        formData.append('coordinates', this.state.coordinates)
         if (this.state.coordinates !== null){
             console.log(this.state.coordinates)
             formData.append('coordinates', this.state.coordinates);
@@ -120,7 +121,6 @@ class AddItem extends Component {
 
 
     }
-
 
     render() {
         var something = [1];
