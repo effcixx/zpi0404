@@ -41,7 +41,8 @@ class AddItem extends Component {
         this.state ={
             redirect: false,
             selectedFiles:[],
-            category: "Kategoria"
+            category: "Kategoria",
+            redirectRanking: false
         }
     }
 
@@ -112,6 +113,7 @@ class AddItem extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto"></Nav>
                         <Nav><div id="map_button"></div></Nav>
+                        <Nav><div id="ranking_button"></div></Nav>
                         <Nav><div id="all_offer_button"></div></Nav>
                         <Nav><div id="offer_button"></div></Nav>
                         <Nav><div id="my_offer_button"></div></Nav>
@@ -236,6 +238,7 @@ class AddItem extends Component {
         displayOffer();
         displayMyOffers();
         displayAllOffers();
+        displayRanking();
     }
 
 }
@@ -264,7 +267,9 @@ function signOut() {
 }
 
 
-
+function goToRanking() {
+    window.open("/ranking","_self");
+}
 function goToMap() {
     window.open("/map","_self");
 }
@@ -279,6 +284,12 @@ function goToAllOffers() {
 
 function goToAddOffer() {
     window.open("/additem","_self");
+}
+function displayRanking(){
+    ReactDOM.render(
+        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
+    )
+    ;
 }
 function displayLogOut()
 {

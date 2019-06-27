@@ -192,6 +192,7 @@ class AllOffers extends Component {
         displayOffer();
         displayMyOffers();
         displayAllOffers();
+        displayRanking();
     }
 
     componentWillUnmount() {
@@ -472,6 +473,7 @@ class AllOffers extends Component {
                         <Nav className="mr-auto"></Nav>
                         <Nav className="mr-auto"></Nav>
                         <Nav><div id="map_button"></div></Nav>
+                        <Nav><div id="ranking_button"></div></Nav>
                         <Nav><div id="all_offer_button"></div></Nav>
                         <Nav><div id="offer_button"></div></Nav>
                         <Nav><div id="my_offer_button"></div></Nav>
@@ -592,7 +594,15 @@ function signOut() {
 
 }
 
-
+function goToRanking() {
+    window.open("/ranking","_self");
+}
+function displayRanking(){
+    ReactDOM.render(
+        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
+    )
+    ;
+}
 
 function goToMap() {
     window.open("/map","_self");

@@ -70,6 +70,7 @@ class MapApp extends Component {
         displayOffer();
         displayMyOffers();
         displayAllOffers();
+        displayRanking();
     }
 
     // never let a process live forever
@@ -240,6 +241,7 @@ class MapApp extends Component {
                         <Nav className="mr-auto"></Nav>
                         <Nav className="mr-auto"></Nav>
                         <Nav><div id="map_button"></div></Nav>
+                        <Nav><div id="ranking_button"></div></Nav>
                         <Nav><div id="all_offer_button"></div></Nav>
                         <Nav><div id="offer_button"></div></Nav>
                         <Nav><div id="my_offer_button"></div></Nav>
@@ -407,6 +409,15 @@ function displayLogOut()
     }
 }
 
+function goToRanking() {
+    window.open("/ranking","_self");
+}
+function displayRanking(){
+    ReactDOM.render(
+        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
+    )
+    ;
+}
 function displayMap()
 {
     ReactDOM.render(

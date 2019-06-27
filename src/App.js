@@ -28,7 +28,8 @@ import node from './img/portfolio/fullsize/node.png'; // with import
 import react from './img/portfolio/fullsize/react.png'; // with import
 import ethereum from './img/portfolio/fullsize/ethereum.png'; // with import
 import pwa from './img/portfolio/fullsize/pwa.png'; // with import
-import oferta from './img/portfolio/fullsize/ofertyscreen.PNG'; // with import
+import oferta1 from './img/portfolio/fullsize/ofertyscreen.PNG'; // with import
+import oferta from './img/portfolio/fullsize/ofertaa.PNG'; // with import
 import block from './img/portfolio/fullsize/blockscreen.PNG'; // with import
 import laczne from './img/portfolio/fullsize/laczne.png'; // with import
 import logowanie from './img/portfolio/fullsize/logowaniescreen.PNG'; // with import
@@ -630,7 +631,7 @@ class App extends Component {
                     </div>
                 </section>
 
-                <footer className="bg-light py-5">
+                <footer className="bg-light py-5My">
                     <div className="container">
                         <div className="small text-center text-muted">Copyright &copy; 2019 - Horak & Łyko & Rychter & Sinicki
                         </div>

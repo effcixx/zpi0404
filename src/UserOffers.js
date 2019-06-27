@@ -212,6 +212,7 @@ class UserOffers extends Component {
         displayOffer();
         displayMyOffers();
         displayAllOffers();
+        displayRanking();
     }
 
     componentWillUnmount() {
@@ -547,6 +548,7 @@ class UserOffers extends Component {
                         <Nav className="mr-auto"></Nav>
                         <Nav className="mr-auto"></Nav>
                         <Nav><div id="map_button"></div></Nav>
+                        <Nav><div id="ranking_button"></div></Nav>
                         <Nav><div id="all_offer_button"></div></Nav>
                         <Nav><div id="offer_button"></div></Nav>
                         <Nav><div id="my_offer_button"></div></Nav>
@@ -583,9 +585,9 @@ class UserOffers extends Component {
                     </div>
                 </section>
                 <footer className="bg-light py-5My">
-
+                    <div className="container">
                         <div className="small text-center text-muted">Copyright &copy; 2019 - Horak & Łyko & Rychter & Sinicki
-
+                        </div>
                     </div>
                 </footer>
                 <script src="vendor/jquery/jquery.min.js"></script>
@@ -681,6 +683,16 @@ function displayMyOffers()
     )
     ;
 }
+function goToRanking() {
+    window.open("/ranking","_self");
+}
+function displayRanking(){
+    ReactDOM.render(
+        <div><Nav.Link id="rankingId" onClick={goToRanking}>Ranking</Nav.Link></div>, document.getElementById("ranking_button")
+    )
+    ;
+}
+
 UserOffers.contextType = AppContext;
 export default UserOffers;
 
