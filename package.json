@@ -15,7 +15,7 @@
     "gapi-client": "0.0.3",
     "google-auth-library": "^3.1.1",
     "google-oauth-jwt": "^0.2.0",
-    "googleapis": "^27.0.0",
+    "googleapis": "^39.1.0",
     "mapbox-gl": "^0.53.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
